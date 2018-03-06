@@ -21,7 +21,7 @@ public class UpdateContactTest {
 		.body("lastName", hasItems("Smith"));
 	}
 
-	@Ignore
+	@Test
 	public void testUpdatingAContactWith_ValidInput() {
 		String myJson = "{\"firstName\":\"william\", \"lastName\":\"Smith\", \"emailId\":\"jack@gmail.com\", \"phoneNumber\":\"0000000000\"}";
 		given()
@@ -34,7 +34,7 @@ public class UpdateContactTest {
 			.body("phoneNumber", equalTo("0000000000"));
 	}
 	
-	@Ignore
+	@Test
 	public void testUpdatingAContactWhen_PhoneNumberIsNotGiven() {
 		String myJson = "{\"firstName\":\"william\", \"lastName\":\"Smith\", \"emailId\":\"jack@gmail.com\", \"phoneNumber\":\"\"}";
 		given()
@@ -47,7 +47,7 @@ public class UpdateContactTest {
 			.body("message", equalTo("Contact will not be saved with out firstname and phonenumber"));
 	}
 	
-	@Ignore
+	@Test
 	public void testUpdatingAContactWith_InvalidPhoneNumberWhichDoesNotContain10Digits() {
 		String myJson = "{\"firstName\":\"william\", \"lastName\":\"Smith\", \"emailId\":\"jack@gmail.com\", \"phoneNumber\":\"999999\"}";
 		given()
